@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* 전체 적용 */
+        *{box-sizing: border-box;}
+        body {
+            padding-left: 0.5rem;
+        }
+    </style>
+
+    <!-- HEADER -->
+    <style>
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 50px;
+            background-color: white;
+        }
+        #top_nav_container {
+            position: relative;
+            height: 100%;
+        }
+        #top_nav_button {
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            position: absolute;
+            height: 100%;
+            padding-left: 1rem;
+        }
+        #top_nav_container h3 {
+            /* text-align: center; */
+            margin: 0;
+            padding-left: 4rem;
+            padding-top: 15px;
+            height: 100%;
+        }
+        .top_nav_ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .top_nav_ul li a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 1rem;
+            background-color: white;
+        }
+        .top_nav_ul li a:hover {
+            background-color: #ddd;
+        }
+        .top_nav_hidden {
+            display: none;
+        }
+    </style>
+
+    <header>
+        <div id="top_nav_container">
+            <button id="top_nav_button" onclick="top_nav_f(this)">&#9776;</button>
+            <h3>World Beer</h3>
+        </div>
+        <nav>
+            <ul class="top_nav_ul top_nav_hidden">
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        let top_nav_ul = document.querySelector('.top_nav_ul');
+
+        function top_nav_f(el) {
+            console.log(el) // element
+            top_nav_ul.classList.toggle('top_nav_hidden');
+        }
+    </script>
+
+
+
+    <!-- MAIN -->
+    <style>
+        #main_tab {
+            margin-top: 50px;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+            height: 250px;
+        }
+        #tab_buttons_container button {
+            border: none;
+            /* font-weight: bold; */
+            font-size: large;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .tab_hidden {
+            display: none;
+        }
+        .tab_active {
+            font-weight: bold;
+            background-color: #ddd;
+            border-bottom: 2px solid black;
+        }
+    </style>
+
+    <main id="main_tab">
+        <h2>Tab Contents</h2>
+        <div id="tab_buttons_container">
+            <button class="tab_button" id="tab_difault" onclick="tab_f(event, 'b0')">Guinness</button>
+            <button class="tab_button" onclick="tab_f(event, 'b1')">Heineken</button>
+            <button class="tab_button" onclick="tab_f(event, 'b2')">Budwiser</button>
+        </div>
+        <div class="tab_beers_container">
+            <div id="b0" class="beer">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit soluta, consequatur velit perspiciatis rem obcaecati saepe consequuntur sequi quasi voluptatem? Maxime animi qui molestias necessitatibus consectetur reprehenderit ipsum maiores corporis.</p>
+            </div>
+            <div id="b1" class="beer">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab est quas odit omnis accusamus quis? Dolorem eveniet illo quo at deserunt. Quod, molestiae cumque dignissimos temporibus soluta odio. Fuga, recusandae?</p>
+            </div>
+            <div id="b2" class="beer">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sunt voluptate tempore temporibus culpa commodi praesentium quam a possimus, tenetur, velit dolore. Deserunt, tempora distinctio. Impedit beatae in quidem. Qui!</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function tab_f(e, id) {
+            // console.log(e);
+            // console.log(e.target);
+            // console.log(id);
+            let beers = document.querySelectorAll('.beer');
+            for(let i=0; i<beers.length; i++) {
+                beers[i].classList.add('tab_hidden')
+            }
+            let beer = document.getElementById(id);
+            beer.classList.remove('tab_hidden');
+
+            let buttons = document.querySelectorAll('.tab_button');
+            for(let i=0; i<buttons.length; i++) {
+                buttons[i].classList.remove('tab_active');
+            }
+            e.target.classList.add('tab_active');
+        }
+
+        document.getElementById('tab_difault').click();
+    </script>
+
+
+    <!-- MODAL -->
+    <style>
+        #main_modal {
+            height: 100px;
+            /* padding-top: 2rem; */
+            padding-bottom: 1rem;
+        }
+        #modal_button {
+            border: none;
+            cursor: pointer;
+            font-size: large;
+            padding: 0.5rem;
+        }
+        #modal_button:hover {
+            background-color: #ddd;
+        }
+        #modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .modal_container {
+            width: 20rem;
+            margin: 100px auto 0;
+            background-color: #fff;
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        .modal_hidden {
+            display: none;
+        }
+    </style>
+    <div id="main_modal">
+        <h2>Modal</h2>
+        <button id="modal_button">OPEN</button>
+        <div id="modal" class="modal_hidden">
+            <div class="modal_container">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, dignissimos! Ea maiores adipisci inventore dicta. Maiores cupiditate laboriosam, deleniti labore perspiciatis magnam voluptatem sunt asperiores debitis officiis adipisci aliquid quis?</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let modal_button = document.querySelector('#modal_button');
+        let modal = document.querySelector('#modal');
+
+        modal_button.addEventListener('click', (modal_button_click) => {
+            modal.classList.remove('modal_hidden');
+        })
+
+        modal.addEventListener('click', (modal_click) => {
+            if (modal_click.target === modal) {
+                modal.classList.add('modal_hidden');
+            }
+        })
+    </script>
+
+
+    <!-- Accordion -->
+    <style>
+        #main_accordion {
+            width: 100%;
+            padding-bottom: 1rem;
+        }
+        .accordion_button {
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            text-align: left;
+            padding: 0.5rem;
+        }
+        .accordion_item {
+            overflow-y: hidden;
+            transition: 1s;
+        }
+        .accordion_item p {
+            padding: 0 0.5rem;
+        }
+        .max_h_0 {
+            max-height: 0;
+        }
+        .max_h_40 {
+            max-height: 10rem;
+        }
+        .accordion_active {
+            font-weight: bold;
+            background-color: #ddd;
+        }
+    </style>
+    <div id="main_accordion">
+        <h2>Accordion</h2>
+        <div class="accordion_container">
+            <button class="accordion_button" onclick="accordion_f(this)">Guinness</button>
+            <div class="accordion_item max_h_0">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi excepturi nesciunt blanditiis officia, ut eligendi ipsum voluptas quos fugit ducimus cumque obcaecati possimus repudiandae voluptatem doloribus facilis suscipit. Tempore, dolor?</p>
+            </div>
+        </div>
+        <div class="accordion_container">
+            <button class="accordion_button" onclick="accordion_f(this)">Heineken</button>
+            <div class="accordion_item max_h_0">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi excepturi nesciunt blanditiis officia, ut eligendi ipsum voluptas quos fugit ducimus cumque obcaecati possimus repudiandae voluptatem doloribus facilis suscipit. Tempore, dolor?</p>
+            </div>
+        </div>
+        <div class="accordion_container">
+            <button class="accordion_button" onclick="accordion_f(this)">Budwiser</button>
+            <div class="accordion_item max_h_0">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi excepturi nesciunt blanditiis officia, ut eligendi ipsum voluptas quos fugit ducimus cumque obcaecati possimus repudiandae voluptatem doloribus facilis suscipit. Tempore, dolor?</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function accordion_f(el) {
+            console.log(el);
+            let accordion_item = el.nextElementSibling;
+
+            accordion_item.classList.toggle('max_h_0');
+            accordion_item.classList.toggle('max_h_40');
+
+            el.classList.toggle('accordion_active');
+        }
+    </script>
+
+
+    <!-- Subscribe -->
+    <style>
+        .subscribe_input {
+            width: 350px;
+            border: 0.5px solid #ddd;
+            padding: 0.5rem;
+        }
+        .subscribe_button {
+            border: none;
+            font-size: medium;
+            cursor: pointer;
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+        #subscribe_container p {
+            margin: 0.5rem;
+        }
+
+    </style>
+    <form class="subscribe_form" action="">
+        <h2>Newsletter</h2>
+        <div id="subscribe_container">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <input class="subscribe_input" type="text">
+            <button class="subscribe_button">Subscribe</button>
+        </div>
+    </form>
+
+    <script>
+        let subscribe_form = document.querySelector('.subscribe_form');
+        let subscribe_container = document.querySelector('#subscribe_container');
+
+        subscribe_form.addEventListener('submit', (subscribe_f) => {
+            subscribe_f.preventDefault();
+
+
+
+            subscribe_container.innerHTML = '<h3>구독해주셔서 감사합니다.</h3>';
+        })
+    </script>
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- # accordion button -->
+
+    <!-- <h1>Accordion</h1>
+
+    <style>
+        button {
+            padding: 0.5rem;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            border-top: 1px solid #ddd;
+        }
+        button::after {
+            content: "+";
+            float: right; /*element가 오른쪽에 떠있는 형태*/
+            transition: 0.2s;
+        }
+        .item {
+            overflow-y: hidden;
+            transition: 0.5s;
+        }
+        .item p {
+            margin: 0;
+            padding: 1rem;
+        }
+        button.active::after { /*button태그 중 active클래스가 있는 element의 after만*/
+            transform: rotate(45deg);
+        }
+        .max-h-0 {
+            max-height: 0;
+        }
+        .max-h-40 {
+            max-height: 10rem;
+        }
+        
+    </style>
+
+    <div class="container">
+        <button onclick="f(this)">Tab 1</button>
+        <div class="item max-h-0">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sapiente debitis excepturi, aperiam velit tenetur, repellat commodi repudiandae quod at ab necessitatibus vel illum optio consequatur voluptas harum, officiis provident?</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <button onclick="f(this)">Tab 2</button>
+        <div class="item max-h-0">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sapiente debitis excepturi, aperiam velit tenetur, repellat commodi repudiandae quod at ab necessitatibus vel illum optio consequatur voluptas harum, officiis provident?</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <button onclick="f(this)">Tab 3</button>
+        <div class="item max-h-0">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sapiente debitis excepturi, aperiam velit tenetur, repellat commodi repudiandae quod at ab necessitatibus vel illum optio consequatur voluptas harum, officiis provident?</p>
+        </div>
+    </div>
+    
+    <script>
+        function f(el) {
+            console.log(el);
+            // el은 클릭된 버튼
+            // item은 클릭된 버튼의 형제엘리먼트
+
+            const item = el.nextElementSibling; // click한 button 아래 엘리먼트
+            
+            // 클릭된 버튼의 형제 엘리먼트에 클래스를 추가/제거
+            // toggle() : 전달받은 인자가 있으면 빼고 없으면 전달
+            item.classList.toggle('max-h-0'); // 뺌
+            item.classList.toggle('max-h-40'); // 넣음
+
+            // 클릭된 버튼의 +에 active 클래스 추가
+            // +는 button의 ::after이니까 el(클릭된버튼)으로 적용함
+            el.classList.toggle('active')
+
+        }
+    </script> -->
+
+
+
+    <!-- <h1>Beers</h1>
+
+    <style>
+        button {
+            border: none;
+            background-color: transparent;
+            padding: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .active {
+            border-bottom: 2px solid black;
+        }
+
+    </style>
+
+    <div class="">
+        <button id="default" onclick="f(event, 'b0')">Guinness</button>
+        <button onclick="f(event, 'b1')">Heineken</button>
+        <button onclick="f(event, 'b2')">Budwiser</button>
+    </div>
+
+    <div class="container">
+        <div id="b0" class="beer">
+            <h3>Guinness</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aliquid nam excepturi delectus provident nobis quod vel enim perspiciatis quidem alias facilis nostrum totam quis veniam beatae impedit quasi vero.</p>
+        </div>
+    
+        <div id="b1" class="beer">
+            <h3>Heineken</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aliquid nam excepturi delectus provident nobis quod vel enim perspiciatis quidem alias facilis nostrum totam quis veniam beatae impedit quasi vero.</p>
+        </div>
+    
+        <div id="b2" class="beer">
+            <h3>Budwiser</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aliquid nam excepturi delectus provident nobis quod vel enim perspiciatis quidem alias facilis nostrum totam quis veniam beatae impedit quasi vero.</p>
+        </div>
+    </div>
+
+    <script>
+        function f(e , id) {
+            console.log(e); // event 객체
+            console.log(e.target); // event가 발생한 button
+            console.log(id);
+
+            // # 컨텐츠 활성화
+            let beers = document.getElementsByClassName('beer');
+
+            // 모든 beer 클래스를 안보이게 한다.
+            for (let i=0; i<beers.length; i++) {
+                beers[i].classList.add('hidden');
+            }
+
+            // id에 일치하는 beer만 보이게 한다.
+            let beer = document.getElementById(id);
+            beer.classList.remove('hidden');
+
+            /********************************************************/
+
+            // # 버튼 활성화
+            let btns = document.querySelectorAll('button');
+
+            // 모든 active를 삭제 (초기화작업) => 이게 없으면 모든 버튼에 active가 생겨버림
+            for (let i=0; i<btns.length; i++) {
+                btns[i].classList.remove('active');
+            }
+
+            // e.tanget  == 클릭된 버튼 에 클래스 추가
+            e.target.classList.add('active')
+
+        }
+    
+
+        // 페이지 처음 로드되었을 때 (새로고침) 실행한다.
+        document.getElementById('default').click();
+    </script> -->
+
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- # top nav -->
+
+    <!-- <style>      
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            backdrop-filter: blur(8px); /*  */
+        }
+        .container {
+            position: relative;
+        }
+        .container h3 {
+            text-align: center;
+            margin: 0;
+            padding: 1rem;
+        }
+        .container button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            background-color: transparent;
+        }
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none; /* list 마커 삭제 */
+        }
+        nav a {
+            display: block;
+            text-align: center;
+            padding: 0.5rem;
+            text-decoration: none;
+            border-top: 1px solid #ddd;
+            color: #555;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        main {
+            padding-top: 3rem;
+            min-height: 1000px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <header>
+        <div class="container">
+            <button onclick="f(this)">&#9776;</button>
+            <h3>Logo</h3>
+        </div>
+        <nav class="hidden">
+            <ul>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Top Navigation</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ad, sint impedit repellat inventore minus similique voluptatem error blanditiis. Debitis minus numquam iure ipsa possimus provident, praesentium doloremque perspiciatis iste?</p>
+    </main>
+
+    <script>
+    function f(el) {
+        console.log(el);
+
+        let nav = document.querySelector('nav');
+        nav.classList.toggle('hidden');
+    }
+
+    // const button = document.querySelector('button');
+    // button.addEventListener('click', (e) => {
+    //     let nav = document.querySelector('nav');
+
+    //     nav.classList.toggle('hidden');
+            
+    // })
+
+    </script> -->
+
+
+
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- # side bar nav -->
+
+    <!-- <style>
+        header button {
+            font-size: 2rem;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 15rem;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1;
+            transition: 0.2s;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav h1 {
+            text-align: center;
+        }
+        nav a {
+            display: block;
+            padding: 0.75rem;
+            text-decoration: none;
+            color: #000;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .-left-60 {
+            left: -15rem; /* 내비게이션의 width 값만큼 왼쪽으로 */
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <header>
+        <button>&#9776;</button>
+    </header>
+    
+    <div class="container">
+        <nav class="-left-60">
+            <h1>Logo</h1>
+            <ul>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="overlay" class="hidden"></div>
+    </div>
+
+    <main>
+        <h1>Side bar</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad eos dolor, rerum amet similique iste modi ipsum quidem reiciendis facilis vitae incidunt consequuntur! Quasi eos sapiente recusandae magni fugiat culpa?</p>
+    </main>
+
+    <script>
+        let button = document.querySelector('button');
+        let nav = document.querySelector('nav');
+        let overlay = document.getElementById('overlay');
+
+        button.addEventListener('click', (e) => {
+            nav.classList.remove('-left-60');
+            overlay.classList.remove('hidden')
+        })
+
+        overlay.addEventListener('click', (e) => {
+            nav.classList.add('-left-60');
+            overlay.classList.add('hidden');
+        })
+    </script> -->
+
+
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- # modal -->
+
+    <!-- <style>
+        #modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            background-color: #fff;
+            width: 20rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin: 100px auto 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+
+
+    <h1>Modal</h1>
+    <button>Open Modal</button>
+
+    <div id="modal" class="hidden">
+        <div class="container">
+            <h1>Modal Content</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae architecto enim quam nisi assumenda, quo odio suscipit doloremque voluptatem sint, a debitis ut accusamus aperiam reiciendis vel porro laudantium! Recusandae.  
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        let button = document.querySelector('button');
+        let modal = document.getElementById('modal');
+
+        // 버튼을 클릭했을때 모달 띄우기
+        button.addEventListener('click', (e) => {
+            modal.classList.remove('hidden');
+        })
+
+        // 모달의 overlay를 클릭했을때 모달 지우기
+        modal.addEventListener('click', (e) => {
+            // container부분은 클릭했을때 modal이 사라지면 안됨 !
+            // event target이 madal일때만 modal이 사라져야함
+            console.log(e.target);
+
+            if (e.target === modal){
+                modal.classList.add('hidden')
+            }
+        })
+    </script> -->
+
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- #Q. modal x버튼 만들기 -->
+
+    <!-- <style>
+        #modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            background-color: #fff;
+            width: 20rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin: 100px auto 0;
+        }
+        .hidden {
+            display: none;
+        }
+        span {
+            float: right;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+    </style>
+
+
+    <h1>Modal</h1>
+    <button>Open Modal</button>
+
+    <div id="modal" class="hidden">
+        <div class="container">
+            <span>&times;</span>
+            <h1>Modal Content</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae architecto enim quam nisi assumenda, quo odio suscipit doloremque voluptatem sint, a debitis ut accusamus aperiam reiciendis vel porro laudantium! Recusandae.  
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let modal = document.querySelector('#modal')
+        let button = document.querySelector('button')
+        let span = document.querySelector('span')
+
+        // 버튼클릭하면 모달 띄우기
+        button.addEventListener('click', (e) => {
+            modal.classList.remove('hidden');
+        })
+
+        // 모달 안의 닫기버튼 누르면 모달 사라지기
+        span.addEventListener('click', (e) => {
+            modal.classList.add('hidden');
+        })
+
+        // 모달 바깥의 overlay된 부분 누르면 모달 사라지기
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal){
+                modal.classList.add('hidden')
+            }
+        })
+    </script> -->
+
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- # form -->
+
+    <!-- <style>
+        label {
+            display: block;
+            font-size: bold;
+        }
+        input {
+            padding: 0.5rem;
+            width: 12rem;
+            outline: none;
+        }
+        .red {
+            color: #f00;
+        }
+    </style>
+
+    <h1>Form 예제 : 유효성 검사</h1>
+
+    <form action="">
+        <label for="">Username</label>
+        <input type="text">
+        <p></p>
+    </form>
+
+    <script>
+        let input = document.querySelector('input');
+        let p = document.querySelector('p');
+
+        input.addEventListener('keyup', (e) => { // keyup 이벤트 : 키보드를 입력할때마다(글자마다)
+            // e.target : input 
+            // value : input의 attribute
+            // console.log(e.target.value);
+
+            let value = e.target.value.trim(); // trim은 문자열(여기선 input의 value) 양옆의 여백을 삭제해줌
+            let message;
+
+            // red 클래스 추가
+            p.classList.add('red');
+
+            if (!value) {
+                message = '유저이름을 입력하세요'
+            } else if (value.length < 5) {
+                message = '유저이름이 너무 짧습니다'
+            } else {
+                // red 클래스 제거
+                p.classList.remove('red');
+                message = '사용가능한 유저이름입니다'
+            }
+
+            p.innerHTML = message; // element에 content추가
+        })
+    </script> -->
+
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+
+    <!-- # form2 -->
+
+    <!-- <style>
+        form {
+            display: flex;
+            height: 2rem;
+        }
+        input {
+            width: 12rem;
+            padding: 0 0.5rem;
+        }
+        button {
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #222;
+        }
+    </style>
+
+    <h1>Newsletter</h1>
+
+    <div id="container">
+        <form action="">
+            <input type="text" placeholder="bunny@example.com" required>
+            required : 입력하지않으면 제출불가
+            <button>구독하기</button>
+        </form>
+    </div>
+
+    <script>
+        let container = document.getElementById('container');
+        let form = document.querySelector('form');
+
+        form.addEventListener('submit', (e) => {
+
+            /*
+                Event.preventDefault()
+
+                엘리먼트의 기본 기능을 실행하지 않는다.
+                예) 폼을 제출하지 않음
+
+                AJAX 요청과 함께 사용된다.
+            */
+            e.preventDefault();
+
+            // AJAX 요청
+
+            // innerHTML contents를 새로운 값으로 할당 : form -> h1
+            container.innerHTML = '<h1>구독해주셔서 감사합니다.</h1>'
+        })
+    </script> -->
+
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+
+    <!-- # form3 -->
+
+    <!-- <style>
+        input, textarea {
+            display: block;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            width: 20rem;
+        }
+        button {
+            margin: 0.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+        p {
+            margin: 0.5rem;
+        }
+
+    </style>
+
+    <form action="">
+        <h1>Contact</h1>
+        <input class="name" type="text" placeholder="성함">
+        <input class="email" type="text" placeholder="이메일">
+        <textarea name="" id="" cols="30" rows="10" placeholder="메시지"></textarea>
+        <button>제출하기</button>
+        <p></p>
+    </form>
+
+    <script>
+        // let input = document.querySelector('input');
+        let name = document.querySelector('.name');
+        let email = document.querySelector('.email');
+        let textarea = document.querySelector('textarea');
+        let button = document.querySelector('button');
+        let form = document.querySelector('form');
+        let p = document.querySelector('p');
+
+        
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            console.log(name.value);
+            console.log(email.value);
+            console.log(textarea.value);
+
+            if (!name.value) {
+                alert('이름을 입력해주세요');
+            } else if (!email.value) {
+                alert('이메일을 입력해주세요');
+            } else if (!textarea.value) {
+                alert('내용을 입력해주세요')
+            } else {
+                p.innerHTML = '빠른 시일내에 연락드리겠습니다.';
+            }
+
+        })
+        
+    </script> -->
+
+<!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- Carousel -->
+
+<!-- 
+    <style>
+        *{box-sizing: border-box;}
+        .wrap {
+            width: 200px;
+            height: 200px;
+            overflow: hidden; /* container의 나머지 아이템을 가려주는 역할 */
+        }
+        #container {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            display: inline-flex;
+            transition: 1s;
+        }
+        .item {
+            width: inherit;
+            height: inherit;
+            border: 1px dashed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .active {
+            color: #00f;
+        }
+    </style> 
+
+
+    <h1>Carousel</h1>
+
+    <div class="wrap">
+        <div id="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+    </div>
+    <div class="nav">
+        <button id="prev" class="hidden" onclick="f(-1)">&#10094;</button>
+        <button id="next" onclick="f(1)">&#10095;</button>
+    </div>
+
+    <div class="indicator">
+        <span class="dot active">*</span>
+        <span class="dot">*</span>
+        <span class="dot">*</span>
+    </div>
+
+    <script>
+        let index = 0;
+        let container = document.getElementById('container');
+        let prev = document.getElementById('prev');
+        let next = document.getElementById('next');
+        let dots = document.querySelectorAll('.dot');
+
+        console.log(dots); // NodeList
+
+        function f(data) {
+            index += data;
+
+            console.log(index);
+
+            // # 이미지 이동
+            container.style.transform = `translateX(-${index * 200}px)`;
+
+            // # 이전 버튼
+            // 버튼 prev에 hidden클래스가 처음에 적용되어있는 이유 : 첫 화면에서 보이면 안 되기때문
+            if (index === 0) {
+                prev.classList.add('hidden');
+            } else {
+                prev.classList.remove('hidden')
+            }
+
+            // # 다음 버튼
+            if (index === 2) {
+                next.classList.add('hidden');
+            } else {
+                next.classList.remove('hidden');
+            }
+
+            // # indicator
+            for (let dot of dots) { // 밑에 코드를 실행하기전에 active클래스를 모조리 삭제함.. 왜냐하면 중복금지
+                dot.classList.remove('active');
+            }
+
+            dots[index].classList.add('active'); // dots의 NodeList index를 활용
+
+        }
+    </script>
+
+-->
+
+<style>
+    .el {
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .el.opacity-100 {
+        opacity: 1;
+    }
+</style>
+
+<h1>Scroll Event</h1>
+<h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? Tenetur eaque dicta facere laboriosam illo repellat debitis deleniti ab sint alias doloribus voluptatibus asperiores tempora, dignissimos consequuntur perferendis facilis.</h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+<h1 class="el">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, perferendis? </h1>
+
+<script>
+    var els = document.querySelectorAll('.el');
+
+    window.addEventListener('scroll', (e) => {
+
+        // // 현재 페이지 전체 길이
+        // console.log(window.innerHeight);
+
+        // // 현재 페이지에서 특정 엘리먼트 위치 구하기
+        // console.log(el.getBoundingClientRect().y)
+        /* 
+        엘리먼트의 크기
+        height: 1920
+        left: 8
+        right: 482.66668701171875
+        width: 474.66668701171875
+        
+        top: -109.125 -> 뷰포트 맨 위에서 엘리먼트까지의 길이
+        y: -109.125
+        bottom: 1810.875 -> 뷰포트 바닥에서 엘리먼트까지의 길이
+        x: 8
+        */
+
+        const viewportHeight = window.innerHeight;
+
+        for (let i = 0; i<els.length; i++) {
+            const y = els[i].getBoundingClientRect().y;
+
+            if (y < viewportHeight - 100) {
+                els[i].classList.add('opacity-100');
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

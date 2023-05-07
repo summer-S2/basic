@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form input {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+<a href="https://html.spec.whatwg.org/multipage/named-characters.html" target="_blank">문자 entity name 링크(새 창에서)</a>
+<p>
+  b : 
+  <b>중요</b>한 부분 표시
+</p>
+<p>
+  strong : 
+  <strong>중요</strong>한 부분 표시
+</p>
+<p>
+  i : 
+  <i>강조</i>할 부분 표시 
+</p>
+<p>
+  em : 
+  <em>강조</em>할 부분 표시
+</p>
+<p>
+  sup : 위 첨자
+  2<sup>2</sup>
+</p>
+<p>
+  sub : 아래 첨자
+  H<sub>2</sub>O 
+</p>
+<p>
+  u : 
+  <u>마춤뻡</u> 철자 오류 강조
+</p>
+<p>
+  s : 
+  <s>2002년입니다</s> 유효하지 않은 정보 표시
+</p>
+<hr>
+
+<h3>인용문 관련 태그</h3>
+<p>blockquote : 
+  <blockquote cite="https://www.yalco.kr/@html-css/1-3/">안쪽의 텍스트가 긴 인용문임을 나타냄. 들여쓰기를 한 것으로 그려짐. <br>
+  cite 속성으로 출처 표시</blockquote>
+</p>
+<p>q : 
+  <q>짧은 인용문에 사용 <br>
+    cite 속성으로 출처 표시</q>
+</p>
+<p> mark : 
+  인용문 중 <mark>하이라이트</mark> 또는 사용자 행동과 연관된 곳 표시(예: 페이지 검색)
+</p>
+<hr>
+
+<p>
+  abbr :
+  <abbr title="First In First Out">FIFO</abbr> 준말/머릿글자 표시. title 속성으로 원래 형태 표시하며 글자 위에 hover시 확인 가능
+</p>
+
+<p>
+  ul : 순서가 없는 목록 <br>
+  ol : 순서가 있는 목록. type, start 속성 사용 가능. <br>
+  li : ul, ol 태그의 1촌 자식으로 이 태그만 가능
+</p>
+
+<p>
+  용어와 정의 나열하는 태그 <br>
+  dl : dl 태그 안에서 사용 <br>
+  dt : 단어 <br>
+  dd : 정의
+</p>
+
+<p>
+  table: 테이블 <br>
+  caption: 표 설명 또는 제목 (선택) <br>
+  tr : 테이블 행 <br>
+  td : 테이블 데이터(셀) <br>
+</p>
+<table style="border: 1px solid black;">
+  <caption>표를 설명하는 곳</caption>
+  <tr>
+    <td>1행 1열</td>
+    <td>1행 2열</td>
+    <td>1행 3열</td>
+  </tr>
+  <tr>
+    <td>2행 1열</td>
+    <td>2행 2열</td>
+    <td>2행 3열</td>
+  </tr>
+  <tr>
+    <td>3행 1열</td>
+    <td>3행 2열</td>
+    <td>3행 3열</td>
+  </tr>
+</table>
+<p>
+  thead: tbody 앞에 와야 함 <br>
+  tbody: 본 내용을 담음 <br>
+  tfoot: tbody 뒤에 와야 함 <br>
+  th: scope 속성으로 row, col 중 선택
+</p>
+<table style="border: 1px solid black;">
+  <caption>웹개발 공부 기록</caption>
+  <thead>
+    <tr>
+      <th scope="col">과목</th>
+      <th scope="col">월</th>
+      <th scope="col">화</th>
+      <th scope="col">수</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">HTML</th>
+      <td>60분</td>
+      <td>60분</td>
+      <td>0분</td>
+    </tr>
+    <tr>
+      <th scope="row">CSS</th>
+      <td>0분</td>
+      <td>30분</td>
+      <td>60분</td>
+    </tr>
+    <tr>
+      <th scope="row">JS</th>
+      <td>0분</td>
+      <td>0분</td>
+      <td>60분</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th scope="row">총 시간</th>
+      <td>60분</td>
+      <td>90분</td>
+      <td>120분</td>
+    </tr>
+  </tfoot>
+</table>
+<hr>
+<p>
+  a: 다른 곳으로의 링크 <br>
+  <ul><b>target</b>속성
+    <li>_self : 현재 창에서 이동(기본)</li>
+    <li>_blank : 새 창에서 이동</li>
+    <li>_parent : 부모 프레임 (ifame 사용시)</li>
+    <li>_top : 최상위 프레임 (ifame 사용시)</li>
+  </ul>
+  <ul><b>href</b>
+    <li>링크주소 넣으면 링크로 이동</li>
+    <li>#id 값 넣으면 해당 요소로 이동</li>
+    <li>tel:010-0000-0000 하면 연락처로 이동</li>
+    <li>mailto:email@example.com 하면 이메일로 이동</li>
+  </ul>
+</p>
+<hr>
+
+<h1>입력값 받는 태그</h1>
+
+<p><b>form</b> : <br> 정보를 제출하기 위한 태그들을 묶음. input, label, button이 안에 있음. <br> autocomplete 속성: 자동완성 여부(생략시 on)</p>
+
+<p> <b>input</b> : <br> 사용자로부터 입력을 받는 요소 <br>
+  <a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input">input의 타입과 속성</a> <br>
+name: 정보들을 서버로 보낼 때 사용. 서버에서 각 항목을 받을 때 무엇에 대한 값인지 구분하는 이름으로 작용. <br>
+value: 값이 지정됨 <br>
+autofocus: 자동 포커스 <br>
+readonly: 읽기만 가능, 전송됨 <br>
+required: 필수 입력값 <br>
+disabled: 입력 불가, 전송 안됨<br>
+<em> type</em>속성을 통해 다양화  <br>
+<form>
+  <label for="text">text</label>
+  <input type="text" id="text" placeholder="text값을 입력받는 필드">
+  <br>
+  <label for="password">password</label>
+  <input type="password" id="password" placeholder="password값을 입력받는 필드">
+  <br>
+  <label for="search">search</label>
+  <input type="search" id="search" placeholder="search할 값을 입력받는 필드">
+  <br>
+  <label for="tel">tel</label>
+  <input type="tel" id="tel" placeholder="연락처를 입력받는 필드">
+  <br>
+  <label for="number">number</label>
+  <input type="number" id="number" placeholder="숫자를 입력받는 필드">
+  <br>
+  <label for="range">range: 범위 설정</label>
+  <input type="range" id="range">
+  <br>
+  <label for="date">date: 날짜 입력</label>
+  <input type="date" id="date">
+  <br>
+  <label for="file">file 선택</label>
+  <input type="file" id="file" accept="image/png, image/jpeg" multiple>
+</form>
+<h3>checkbox : value로 값을 넘겨줌</h3>
+<input type="checkbox" id="checkbox" value="check">
+<label for="checkbox">체크</label>
+<br>
+<h3>radio : name으로 묶으면 1개만 선택 가능</h3>
+<input type="radio" id="radio_1" name="radio" >
+<label for="radio_1">radio_1</label>
+<input type="radio" id="radio_2" name="radio" >
+<label for="radio_2">radio_2</label>
+<input type="radio" id="radio_3" name="radio" >
+<label for="radio_3">radio_3</label>
+</p>
+
+<p><b>label</b>: 라벨의 for속성값과 input의 id를 연결하면 라벨을 클릭해도 인풋이 선택됨. (같은 폼 안에서)</p>
+
+<p><b>button</b>: <br>
+type submit : 제출, type reset : 초기화, type button : 기본 동작 없음
+</p>
+
+
+<p><b>fieldset</b>: <br> 폼 태그 내 입력요소와 라벨들을 그룹화 <br>
+disabled 속성 : 포함된 입력요소 비활성화
+</p>
+<p><b>legend</b>: <br> 필드셋 요소의 제목 또는 설명</p>
+<form>
+  <fieldset>
+    <legend>회원가입</legend>
+    <label for="name_1">이름</label>
+    <input id="name_1" name="name_1" type="text">
+    <br><br>
+    <label for="id">아이디</label>
+    <input id="id" name="id" type="text">
+  </fieldset>
+</form>
+
+<p><b>select, option</b>: 옵션중 선택하기</p>
+<label for="color">color</label>
+<select id="color">
+  <option value="">색깔 선택</option>
+  <option value="red">빨강</option>
+  <option value="green">초록</option>
+  <option value="blue">파랑</option>
+</select>
+<p><b>optgruop</b>: 옵션을 그룹으로 묶음</p>
+<label for="menu">메뉴판</label>
+<select id="menu">
+  <option value="">메뉴 선택</option>
+  <optgroup label="한식">
+    <option value="ko_1">김치찌개</option>
+    <option value="ko_2">된장찌개</option>
+    <option value="ko_3">부대찌개</option>
+  </optgroup>
+  <optgroup label="중식">
+    <option value="ch_1">짜장면</option>
+    <option value="ch_2">짬뽕</option>
+    <option value="ch_3">탕수육</option>
+  </optgroup>
+  <optgroup label="양식">
+    <option value="am_1">스파게티</option>
+    <option value="am_2">피자</option>
+    <option value="am_3">햄버거</option>
+  </optgroup>
+</select>
+<p><b>datalist</b>: 입력값 추천</p>
+<label for="intereat">취미</label>
+<input id="intereat" list="intereats">
+<datalist id="intereats">
+  <option value="운동" />
+  <option value="독서" />
+  <option value="게임" />
+</datalist>
+</body>
+</html>
