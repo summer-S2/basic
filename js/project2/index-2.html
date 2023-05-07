@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- ※ header와 footer는 viewport 100%로 하는게 자연스러움 -->
+    <!-- item에 width랑 height를 지정하는게 padding 보다 세세한 조절하기 좋다 -->
+    <!-- large == 1024px == 5xl -->
+    <!-- z-index가 없는 경우 : html 트리에서 더 밑에있는 트리가 위로 올라옴 -->
+
+
+
+
+
+    <!-- HEADER -->
+    <div class="fixed top-0 left-0 w-full z-10">
+        <!-- w-full : position 속성을 주면 넓이를 필요한 만큼만 차지 -->
+        <div class="flex h-12 items-center bg-gray-600">
+            <div class="w-60">
+                <!-- width-60 : sidebar랑 맞춘것 -->
+                <h1 class="text-2xl text-white text-center">DASHBOARD</h1>
+            </div>
+            <form action="" class="grow">
+                <!-- grow : 컨테이너의 남는부분을 다 차지 -->
+                <input type="text" class="w-96 h-10 px-4 outline-none" placeholder="Search">
+                <!-- h-10 : input 에 h를 적용해서 글자 위아래 공간이 생김 -->
+                <!-- outline-none : 포커스됐을때 보더 바깥부분 없앰 -->
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <!-- SIDE BAR -->
+    <div class="fixed top-0 left-0 h-full w-60 border-r hidden lg:block bg-white">
+        <!-- w-60 header의 logo와 맞춘것 -->
+        <!-- hidden : display none -->
+        <!-- lg:block : large size 1024px 이상부터는 block -->
+        <ul class="pt-20 pl-4 h-full">
+            <!-- pt-20 : header가 fixed + z-10 이라 가려져서 내려야함 -->
+            <li>
+                <a href="#" class="block p-2 hover:bg-gray-200">LINK</a>
+            </li>
+            <li>
+                <a href="#" class="block p-2 hover:bg-gray-200">LINK</a>
+            </li>
+            <li>
+                <a href="#" class="block p-2 hover:bg-gray-200">LINK</a>
+            </li>
+            <li>
+                <a href="#" class="block p-2 hover:bg-gray-200">LINK</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <!-- MAIN -->
+    <div class="max-w-5xl lg:ml-60 pt-20 px-4">
+        <!-- 5xl == 1024 == large -->
+        <!-- MESSAGE -->
+        <div class="bg-orange-100 border-l-4 border-l-orange-500 text-orange-700 p-4 mb-4">
+            <!-- border-l-4 : left 4px -->
+            <p class="font-bold">Be Warned</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus distinctio repellat eum ad odit
+                obcaecati labore debitis cupiditate maiores numquam voluptate ab odio cumque nihil, ipsum laborum ut,
+                doloremque doloribus!</p>
+        </div>
+
+
+        <div class="mb-4">
+            <h1 class="text-2xl">Board</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+
+
+        <!-- DROPDOWN -->
+        <div class="mb-4 flex justify-end">
+            <!-- item의 위치를 조절하려면 inline-flex 사용안됨 -->
+            <div class="relative group">
+                <!-- 버튼과 컨텐츠를 감싸는 컨테이너는 relative 이어야함 -->
+                <button class="p-2 bg-gray-600 text-white hover:bg-gray-700">Dropdown</button>
+                <div class="absolute right-0 w-48 bg-white shadow hidden group-hover:block">
+                    <!-- absolute : dropdown 컨텐츠가 공간을 차지하지 않고 떠있는 상태 만들기 -->
+                    <!-- right-0 : button기준으로 오른쪽이 붙음 없으면 overflow 생김 -->
+                    <!-- hidden : display:none; -->
+                    <!-- group-hover:block : 부모 element를 hover해서 children을 조작할때 -->
+                    <a href="#" class="block p-2 hover:bg-gray-200">Menu</a>
+                    <a href="#" class="block p-2 hover:bg-gray-200">Menu</a>
+                    <a href="#" class="block p-2 hover:bg-gray-200">Menu</a>
+                    <!-- block : a태그의 기본 속성이 inline이어서 기본값으로 스타일을 줄 수 없음 -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- BOARD -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+            <div class="bg-gray-200 p-4 h-48">-</div>
+            <div class="bg-gray-200 p-4 h-48">-</div>
+            <div class="bg-gray-200 p-4 h-48">-</div>
+            <div class="bg-gray-200 p-4 h-48">-</div>
+            <div class="bg-gray-200 p-4 h-48">-</div>
+            <div class="bg-gray-200 p-4 h-48">-</div>
+            <!-- width는 배열에 맞게 알아서 지정됨 -->
+        </div>
+
+        <!-- TABLE -->
+        <div class="mb-4">
+            <h1 class="text-2xl">Table</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+
+
+        <table class="w-full">
+            <!-- w-full : width 100% / main과 같음 / 없으면 필요한 만큼만 공간을 차지하고 나머지 마진처리됨-->
+            <thead class="border-b border-b-black">
+                <!-- border-black: 로 했을때 다른 보더가 있으면 스타일 겹침 -->
+                <tr class="text-left">
+                    <th scope="col">#</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b">
+                    <td scope="row" class="font-bold">1</td>
+                    <!-- scope="row" : 행의 첫번째 값이라는 의미 -->
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr class="border-b">
+                    <td scope="row" class="font-bold">2</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr class="border-b">
+                    <td scope="row" class="font-bold">3</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr class="border-b">
+                    <td scope="row" class="font-bold">4</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer class="lg:ml-60 p-8 bg-gray-200 mt-12">
+        <p>Footer</p>
+    </footer>
+
+
+</body>
+
+</html>
